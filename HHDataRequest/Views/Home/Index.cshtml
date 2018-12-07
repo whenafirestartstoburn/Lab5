@@ -1,0 +1,40 @@
+﻿@model HHDataRequest.Models.HhDataModel
+
+@{
+    ViewBag.Title = "Данные из HH.RU";
+}
+
+<div class="jumbotron">
+    <h1>Данные загружены через API сайта hh.ru (https://api.hh.ru)</h1>
+</div>
+
+<div class="row">
+	<div class="col-md-3">
+		<h3>@String.Format("Названия профессий с требованием зарплаты в вакансиях от {0} рублей", Model.BigSalary)</h3>
+		@foreach (string vacancy in Model.ProfessionsWithBigSalary)
+		{
+			<p>@vacancy</p>
+		}
+	</div>
+	<div class="col-md-3">
+		<h3>@String.Format("Ключевые навыки из вакансий с требованием зарплаты от {0} рублей", Model.BigSalary)</h3>
+		@foreach (string keySkill in Model.SkillsForBigSalary)
+		{
+			<p>@keySkill</p>
+		}
+	</div>
+	<div class="col-md-3">
+		<h3>@String.Format("Названия профессий с требованием зарплаты в вакансиях до {0} рублей", Model.LowSalary)</h3>
+		@foreach (string vacancy in Model.ProfessionsWithLowSalary)
+		{
+			<p>@vacancy</p>
+		}
+	</div>
+	<div class="col-md-3">
+		<h3>@String.Format("Ключевые навыки из вакансий с требованием зарплаты до {0} рублей", Model.LowSalary)</h3>
+		@foreach (string keySkill in Model.SkillsForLowSalary)
+		{
+			<p>@keySkill</p>
+		}
+	</div>
+</div>
